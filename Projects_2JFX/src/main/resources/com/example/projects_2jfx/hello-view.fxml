@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="salir" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="900.0" style="-fx-background-color: #220547;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projects_2jfx.controller.HelloController">
+   <children>
+      <VBox layoutX="9.0" layoutY="37.0" prefHeight="339.0" prefWidth="106.0" spacing="10.0">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <children>
+            <Label prefHeight="17.0" prefWidth="69.0" text="Menú Principal" textFill="WHITE" />
+            <ImageView fx:id="btnActivar" fitHeight="55.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/icons8_choose_96px.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="btnClonar" fitHeight="53.0" fitWidth="87.0" onMouseClicked="#onClickMenu" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/icons8_clone_figure_96px.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="btnEvaluar" fitHeight="51.0" fitWidth="69.0" onMouseClicked="#onClickMenu" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/icons8_task_96px.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="btnTop_3" fitHeight="42.0" fitWidth="54.0" onMouseClicked="#onClickMenu" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/icons8_medal_third_place_96px.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="btnSalir" fitHeight="40.0" fitWidth="50.0" onMouseClicked="#onClickMenu" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/icons8_logout_104px_1.png" />
+               </image>
+            </ImageView>
+         </children>
+         <padding>
+            <Insets left="30.0" />
+         </padding>
+      </VBox>
+      <Pane fx:id="paneActivar" layoutX="142.0" prefHeight="400.0" prefWidth="477.0" style="-fx-background-color: #ddc4f5;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="125.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="24.0" fitWidth="22.0" layoutX="-2.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/icons8_left_104px_2.png" />
+               </image>
+            </ImageView>
+            <HBox alignment="TOP_CENTER" layoutX="-4.0" layoutY="-5.0" prefHeight="60.0" prefWidth="784.0" spacing="250.0" style="-fx-background-color: #220547;">
+               <children>
+                  <Label prefHeight="31.0" prefWidth="100.0" text="TITULO" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Cooper Black" size="21.0" />
+                     </font>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+                  <Label prefHeight="25.0" prefWidth="187.0" text="DESCRIPCION" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Cooper Black" size="21.0" />
+                     </font>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets top="15.0" />
+               </padding>
+            </HBox>
+            <HBox layoutX="20.0" layoutY="57.0" prefHeight="30.0" prefWidth="749.0" spacing="50.0">
+               <children>
+                  <TextField fx:id="txtTitulo" prefHeight="25.0" prefWidth="297.0" promptText="Digite_un_Titulo">
+                     <HBox.margin>
+                        <Insets left="70.0" />
+                     </HBox.margin></TextField>
+                  <TextField fx:id="txtDescripcion" prefHeight="25.0" prefWidth="281.0" promptText="Digite_una_Descripcion_del_titulo">
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin></TextField>
+               </children>
+               <padding>
+                  <Insets top="5.0" />
+               </padding>
+            </HBox>
+            <HBox layoutX="178.0" layoutY="87.0" prefHeight="39.0" prefWidth="89.0" spacing="10.0">
+               <children>
+                  <ImageView fx:id="btnSiguiente" fitHeight="46.0" fitWidth="45.0" onMouseClicked="#onClickAgregarTitulo" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/icons8_right_104px_1.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </ImageView>
+                  <ImageView fitHeight="33.0" fitWidth="55.0" onMouseClicked="#onClickeliminar" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/icons8_close_window_104px.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+            </HBox>
+            <TableView fx:id="tvTitulos" layoutX="6.0" layoutY="133.0" onMouseClicked="#onClickseleccionar" prefHeight="189.0" prefWidth="766.0" visible="false">
+              <columns>
+                <TableColumn fx:id="tcId" minWidth="5.0" prefWidth="55.0" text="PIN" />
+                <TableColumn fx:id="tcTitulo" prefWidth="331.0" text="TITULO" />
+                  <TableColumn fx:id="tcDescripcion" prefWidth="379.0" text="DESCRIPCION" />
+              </columns>
+            </TableView>
+            <Pane layoutX="-8.0" layoutY="420.0" prefHeight="17.0" prefWidth="784.0" style="-fx-background-color: #220547;" />
+            <HBox layoutX="-6.0" layoutY="397.0" prefHeight="17.0" prefWidth="784.0" style="-fx-background-color: #220547;" />
+            <HBox fx:id="btnAgregarCuestionario" layoutX="615.0" layoutY="322.0" onMouseClicked="#onClickMenu" prefHeight="71.0" prefWidth="154.0" spacing="30.0" style="-fx-background-color: #200544; -fx-background-radius: 30;">
+               <children>
+                  <ImageView fitHeight="71.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/icons8_undo_104px_1.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="10.0" right="30.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+               <padding>
+                  <Insets left="30.0" />
+               </padding>
+            </HBox>
+         </children></Pane>
+      <Pane fx:id="panePrincipal" layoutX="142.0" prefHeight="400.0" prefWidth="475.0" style="-fx-background-color: #7b49ab;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="125.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="17.0" fitWidth="22.0" layoutX="-3.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/icons8_left_104px_2.png" />
+               </image>
+            </ImageView>
+            <TableView fx:id="tvTitulos2" layoutX="33.0" layoutY="125.0" onMouseClicked="#onClickMostrarDatos" prefHeight="200.0" prefWidth="718.0">
+              <columns>
+                <TableColumn fx:id="tcId2" prefWidth="122.0" text="PIN" />
+                <TableColumn fx:id="tcTitulo2" prefWidth="176.0" text="TITULO" />
+                  <TableColumn fx:id="tcDescripcion2" prefWidth="321.0" text="DESCRIPCION" />
+                  <TableColumn prefWidth="122.0" text="SELECCION" />
+              </columns>
+            </TableView>
+            <Label layoutX="134.0" layoutY="14.0" prefHeight="40.0" prefWidth="447.0" style="-fx-background-color: #220547; -fx-background-radius: 10;" text="CUESTIONARIO APP" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+               <padding>
+                  <Insets left="30.0" top="10.0" />
+               </padding>
+            </Label>
+            <HBox alignment="TOP_CENTER" layoutX="504.0" layoutY="342.0" prefHeight="83.0" prefWidth="202.0" spacing="20.0" style="-fx-background-color: #220547; -fx-background-radius: 50;">
+               <children>
+                  <ImageView fx:id="btnAgregaCuestionario" fitHeight="83.0" fitWidth="224.0" onMouseClicked="#onClickMenu" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/icons8_add_new_96px.png" />
+                     </image>
+                  </ImageView>
+               </children></HBox>
+         </children></Pane>
+      <Pane fx:id="paneAgregarPregunta" layoutX="142.0" prefHeight="400.0" prefWidth="458.0" style="-fx-background-color: #ae97c4;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="125.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="17.0" fitWidth="17.0" layoutX="-1.0" layoutY="202.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/icons8_left_104px_2.png" />
+               </image>
+            </ImageView>
+            <HBox layoutX="147.0" layoutY="20.0" prefHeight="45.0" prefWidth="356.0" style="-fx-background-color: #200544; -fx-background-radius: 20;">
+               <children>
+                  <Label text="TITULO" textFill="#f8f3f3">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="12.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="txtMostrarTitulo" onMouseClicked="#onClickAgregarPregunta" prefHeight="25.0" prefWidth="271.0">
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin></TextField>
+               </children>
+               <opaqueInsets>
+                  <Insets top="10.0" />
+               </opaqueInsets>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </HBox>
+            <HBox layoutX="149.0" layoutY="70.0" prefHeight="42.0" prefWidth="356.0" spacing="10.0" style="-fx-background-color: #200544; -fx-background-radius: 20;">
+               <children>
+                  <Label prefHeight="21.0" prefWidth="104.0" text="DESCRIPCION" textFill="#ebe4e4">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="txtMostrarDescripcion" prefHeight="25.0" prefWidth="221.0" />
+               </children>
+               <opaqueInsets>
+                  <Insets top="5.0" />
+               </opaqueInsets>
+               <padding>
+                  <Insets top="10.0" />
+               </padding></HBox>
+            <HBox layoutX="278.0" layoutY="122.0" prefHeight="41.0" prefWidth="100.0" spacing="20.0" style="-fx-background-color: #200544; -fx-background-radius: 15;">
+               <children>
+                  <ImageView fitHeight="31.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/icons8_edit_104px.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="26.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/icons8_trash_104px.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="10.0" right="5.0" top="5.0" />
+               </padding>
+            </HBox>
+            <TableView fx:id="tvPreguntas" layoutX="68.0" layoutY="173.0" onMouseClicked="#initializePreguntas" prefHeight="200.0" prefWidth="603.0">
+              <columns>
+                <TableColumn fx:id="tcPregunta" prefWidth="367.0" text="PREGUNTA" />
+                <TableColumn fx:id="tcTiempoLimite" minWidth="0.0" prefWidth="132.0" text="TIEMPO LIMITE" />
+                  <TableColumn fx:id="tcPunteo" prefWidth="64.0" text="PUNTEO" />
+              </columns>
+            </TableView>
+            <HBox layoutX="505.0" layoutY="391.0" prefHeight="40.0" prefWidth="112.0" spacing="20.0" style="-fx-background-color: #200544; -fx-background-radius: 10;">
+               <children>
+                  <ImageView fx:id="btnRegresarInicio" fitHeight="35.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/icons8_undo_104px_1.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="btnNuevaPregunta" fitHeight="29.0" fitWidth="43.0" onMouseClicked="#onClickMenu" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/icons8_add_new_96px.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <padding>
+                  <Insets left="10.0" top="5.0" />
+               </padding>
+            </HBox>
+         </children></Pane>
+      <Pane fx:id="paneTop_3" layoutX="142.0" prefHeight="400.0" prefWidth="461.0" style="-fx-background-color: #716f73;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="125.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="3.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/icons8_left_104px_2.png" />
+               </image>
+            </ImageView>
+            <HBox layoutX="52.0" layoutY="23.0" prefHeight="42.0" prefWidth="672.0" style="-fx-background-color: #A1828F; -fx-background-radius: 15;">
+               <children>
+                  <Label alignment="TOP_CENTER" prefHeight="24.0" prefWidth="141.0" text="PREGUNTA" textFill="#f5efef">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField prefHeight="25.0" prefWidth="531.0" promptText="Digite_Una_Pregunta.................................." />
+               </children>
+               <padding>
+                  <Insets right="20.0" top="8.0" />
+               </padding>
+            </HBox>
+            <HBox layoutX="271.0" layoutY="75.0" prefHeight="51.0" prefWidth="453.0" spacing="10.0" style="-fx-background-color: #A1828F; -fx-background-radius: 15;">
+               <children>
+                  <Label alignment="TOP_CENTER" prefHeight="30.0" prefWidth="370.0" text="TIEMPO LIMITE EN SEGUNDOS" textFill="#fffafa">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font></Label>
+                  <MenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="128.0" text="5, 10, 15, 20">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Action 1" />
+                      <MenuItem mnemonicParsing="false" text="Action 2" />
+                    </items>
+                  </MenuButton>
+               </children>
+               <padding>
+                  <Insets right="10.0" top="10.0" />
+               </padding>
+            </HBox>
+            <HBox layoutX="453.0" layoutY="139.0" prefHeight="42.0" prefWidth="271.0" style="-fx-background-color: #A1828F; -fx-background-radius: 15;">
+               <children>
+                  <Label alignment="TOP_CENTER" prefHeight="24.0" prefWidth="141.0" text="PUNTOS" textFill="#f5efef">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField prefHeight="25.0" prefWidth="107.0" />
+               </children>
+               <padding>
+                  <Insets right="20.0" top="8.0" />
+               </padding>
+            </HBox>
+            <Label alignment="TOP_CENTER" layoutX="45.0" layoutY="210.0" prefHeight="30.0" prefWidth="154.0" style="-fx-background-color: #A1828F; -fx-background-radius: 20;" text="RESPUESTAS" textFill="#fffafa">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Label>
+            <VBox layoutX="222.0" layoutY="240.0" prefHeight="99.0" prefWidth="106.0" spacing="10.0" style="-fx-background-color: #A1828F;">
+               <children>
+                  <RadioButton mnemonicParsing="false" text="Opcion 1" />
+                  <RadioButton mnemonicParsing="false" text="Opcion 2" />
+                  <RadioButton mnemonicParsing="false" text="Opcion 3" />
+                  <RadioButton mnemonicParsing="false" text="Opcion 4" />
+               </children>
+            </VBox>
+            <Pane layoutX="-8.0" prefHeight="450.0" prefWidth="791.0" style="-fx-background-color: #668377;" visible="false" />
+         </children></Pane>
+   </children>
+</AnchorPane>
